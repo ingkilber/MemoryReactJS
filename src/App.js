@@ -8,16 +8,15 @@ function App() {
   const [cards, setCards] = useState([]);
 
   const fetchApi = async () => {
-
     const response = await fetch (url)
     const data = await response.json();
     setCards(data.results);
+
     console.log(data.results)
 
   }
 
   useState(() => {
-    // getUsuario();
     fetchApi();
   }, []);
   
@@ -34,6 +33,9 @@ function App() {
   const listItems = cards.map((todo) =>
   
   <li key={todo.name}>
+    <div>
+      <Card />
+    </div>
     {todo.name}
   </li>
   );

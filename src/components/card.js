@@ -1,11 +1,12 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-const card = () => {
-  return (
-    <div>
-      cartas
-    </div>
-  )
+export default class card extends Component {
+  render() {
+    return (
+      <div className="cartas">
+
+      </div>
+    )
+  }
 }
 
-export default card
