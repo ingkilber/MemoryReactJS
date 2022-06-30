@@ -3,13 +3,24 @@ import './App.css';
 import Card from './components/card';
 
 function App() {
-  // const url = 'https://pokeapi.co/api/v2/pokemon/ditto'
-  // const [cards, setCards] = useState();
-  // const fetchApi = async () => {
-  //   const response = await fetch (url)
-  //   console.log(response.statusText)
-  // }
+  const url = 'https://pokeapi.co/api/v2/pokemon/'
 
+  const [cards, setCards] = useState([]);
+
+  const fetchApi = async () => {
+
+    const response = await fetch (url)
+    const data = await response.json();
+    setCards(data.results);
+    console.log(data.results)
+
+  }
+
+  useState(() => {
+    // getUsuario();
+    fetchApi();
+  }, []);
+  
   // useEffect (() => {
   //   fetchApi ()
   // }, [])
@@ -20,15 +31,23 @@ function App() {
   // .catch(() => console.log("Algo falló"))
   // const [cards, setCards] = useState();
 
+  const listItems = cards.map((todo) =>
+  
+  <li key={todo.name}>
+    {todo.name}
+  </li>
+  );
+
 
   return (
     <div className="App">
       <div className='cartas-container'>
-        {
+        {/* {
         cards.map((card) => (
           <Card />
         ))  
-        }
+        } */}
+    <ul>{listItems}</ul>
       </div>    
     </div>
   );
