@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Header from './components/Header';
 import './App.css';
 import Card from './components/card';
 
@@ -13,6 +14,19 @@ function App() {
     setCards(data.results);
 
     console.log(data.results)
+
+
+
+    // extraer imagenes
+
+
+      // const responseimg = await fetch ("https://pokeapi.co/api/v2/pokemon/")
+      // const dataimg = await responseimg.json ();
+
+      // console.log(dataimg.sprites.other)
+
+
+    // fin de extraer imagenes
 
   }
 
@@ -32,7 +46,7 @@ function App() {
 
   const listItems = cards.map((todo) =>
   
-  <li key={todo.name}>
+  <li className='cartas' key={todo.name}>
     <div>
       <Card />
     </div>
@@ -42,15 +56,15 @@ function App() {
 
 
   return (
-    <div className="App">
-      <div className='cartas-container'>
-        {/* {
-        cards.map((card) => (
-          <Card />
-        ))  
-        } */}
-    <ul>{listItems}</ul>
-      </div>    
+    <div className='header'>
+      <Header />
+        <div className="App">
+          <div className='cartas-container'>
+
+        <ul>{listItems}</ul>
+
+          </div>    
+        </div>
     </div>
   );
 }

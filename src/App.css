@@ -7,8 +7,32 @@
   align-items: center;
 }
 
+.Header {
+  height: 50px;
+  border: 1px rgb(2, 2, 1);
+  margin-bottom: 10px;
+  display: flex;
+justify-content: space-between;
+  align-content: center;
+}
+
+.titulo {
+  font-size: 25px;
+  padding: 60px;
+  color: rgb(0, 0, 0);
+  display: flex;
+  position: absolute;
+  margin:auto;
+}
+
+.boton-reiniciar {
+  position: absolute;
+  left: 12px;
+  top: 58px;
+}
+
 .cartas-container {
-  width: 1000px;
+  width: 1500px;
   height: 600px;
   border: 1px solid white;
 }
@@ -16,8 +40,8 @@
 .cartas {
   display: inline-block;
   margin: 5px;
-  height: calc(200px - 10px);
-  width: calc(250px - 10px);
+  height: calc(180px - 10px);
+  width: calc(200px - 10px);
   background-color: aqua;
   cursor: pointer;
 }
@@ -29,3 +53,4 @@
   -ms-transform: scale(0.98);
   -o-transform: scale(0.98);
 }
+
