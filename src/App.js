@@ -59,7 +59,7 @@ function App() {
   // const [cards, setCards] = useState();
 
   const listItems = cards.map((todo) => (
-    <li className="cartas" key={todo.name}>
+    <li className="cards" key={todo.name}>
       <div>
         <Card kilber={todo.name} />
       </div>
@@ -79,7 +79,7 @@ function App() {
   // });
 
   return (
-    <div className="header">
+    <div>
       <Header />
       <div className="App">
         <div className="cartas-container">

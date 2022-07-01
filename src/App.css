@@ -1,13 +1,13 @@
 .App {
   background-color: #124f8ff2;
-  height: 100vh;
+  height: 80vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.Header {
+.Header2 {
   height: 50px;
   border: 1px rgb(2, 2, 1);
   margin-bottom: 10px;
@@ -33,8 +33,9 @@ justify-content: space-between;
 
 .cartas-container {
   width: 1500px;
-  height: 600px;
+  height: 670px;
   border: 1px solid white;
+  overflow: auto;
 }
 
 .cartas {
@@ -54,3 +55,61 @@ justify-content: space-between;
   -o-transform: scale(0.98);
 }
 
+.cards {
+  display: inline-block;
+  margin: 5px;
+  height: calc(180px - 10px);
+  width: calc(200px - 10px);
+  cursor: pointer;
+}
+
+header {
+	width:100%; /* Establecemos que el header abarque el 100% del documento */
+  height: 15vh;
+	overflow:hidden; /* Eliminamos errores de float */
+	background:#252932;
+	margin-bottom:0px;
+}
+
+.wrapper {
+	width:90%; /* Establecemos que el ancho sera del 90% */
+	max-width:1000px; /* Aqui le decimos que el ancho máximo sera de 1000px */
+	margin:auto; /* Centramos los elementos */
+	overflow:hidden; /* Eliminamos errores de float */
+}
+
+header .logo {
+	color:#f2f2f2;
+	font-size:50px;
+	line-height:150px;
+	float:left;
+}
+
+header nav {
+	float:right;
+	line-height:150px;
+}
+
+header nav a {
+	display:inline-block;
+	color:#fff;
+	text-decoration:none;
+	padding:10px 20px;
+	line-height:normal;
+	font-size:20px;
+	font-weight:bold;
+	-webkit-transition:all 500ms ease;
+	-o-transition:all 500ms ease;
+	transition:all 500ms ease;
+}
+
+header nav a:hover {
+	background:aqua;
+  color:rgb(0, 0, 0);
+	border-radius:50px;
+}
+.active {
+	background:aqua;
+  color:rgb(0, 0, 0);
+	border-radius:50px;
+}

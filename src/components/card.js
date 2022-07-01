@@ -11,6 +11,10 @@ import ReactCardFlip from 'react-card-flip';
 //   }
 // }
 
+
+// Consumir API estructura y ruta para conseguir la imagen front_default
+
+// useState aplica depues que se corre la funcion y useEffect antes del async await
 const Card = (props) => {
 
   const [urlimagen, setUrlimagen] = useState("");
@@ -24,6 +28,7 @@ const Card = (props) => {
     fetchApi();
   }, []);
 
+  // asi se imprimime por pantalla {urlimagen} - {props.kilber}
   return(
     <div> <img className='cartas' src={urlimagen} />  {props.kilber} </div>
   );
