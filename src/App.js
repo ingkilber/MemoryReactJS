@@ -13,7 +13,7 @@ function App() {
     const data = await response.json();
     setCards(data.results);
 
-    console.log(data.results);
+    // console.log(data.results);
 
 
 
@@ -24,14 +24,14 @@ function App() {
         .then((resp) => resp.json())
         //funcion anonima
         .then(function (data) {
-          console.log(data.sprites.other.home.front_default)
+          // console.log(data.sprites.other.home.front_default)
           // let authors = data.results;
         })
         .catch(function (error) {
-          console.log(error);
+          // console.log(error);
         });
 
-      console.log(element.name);
+      // console.log(element.name);
     });
 
     // extraer imagenes
@@ -61,24 +61,22 @@ function App() {
   const listItems = cards.map((todo) => (
     <li className="cartas" key={todo.name}>
       <div>
-        <Card />
+        <Card kilber={todo.name} />
       </div>
-      
-      {todo.name}
     </li>
   ));
 
 
-  const listItems2 = cards.forEach(element => {
-    <li className="cartas" key={element.name}>
-      <div>
-        hola
-      </div>
+  // const listItems2 = cards.forEach(element => {
+  //   <li className="cartas" key={element.name}>
+  //     <div>
+  //       hola
+  //     </div>
       
-      {element.name}
-    </li>
+  //     {element.name}
+  //   </li>
     
-  });
+  // });
 
   return (
     <div className="header">
