@@ -6,20 +6,9 @@ import Card from "./components/card";
 function App() {
 
   // limitar o solo indicar cuantos obj o items que deseo traer de la api ?limit=2 => se le llama parametros get
-  const url = "https://pokeapi.co/api/v2/pokemon/?limit=12";
+  const url = "https://pokeapi.co/api/v2/pokemon/?limit=10";
 
   const [cards, setCards] = useState([]);
-  
-
-  // Desordenar imagenes
-  // const shuffleArray = (array) => {
-  //   for (let i = array.length - 1; i > 0; i--) {
-  //     let j = Math.floor(Math.random() * (i + 1));
-  //     let temp = array[i];
-  //     array[i] = array[j];
-  //     array[j] = temp;
-  //   }
-  // }
 
 
   const fetchApi = async () => {
@@ -31,9 +20,19 @@ function App() {
 let multiplicar = data.results;
 let unir = multiplicar.concat(multiplicar);
 
-    setCards(unir);
+setCards(unir);
 
-    // console.log(data.results);
+    // Desordenar imagenes
+    const shuffleArray = (array) => {
+      for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        let temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+      }
+    }
+    shuffleArray (unir);
+    
 
     // data.results.forEach((element) => {
     //   // Aqui realizo el frects, la consulta para obtener datos
@@ -55,6 +54,7 @@ let unir = multiplicar.concat(multiplicar);
   useState(() => {
     fetchApi();
   }, []);
+
   
 
   const listItems = cards.map((todo) => (
