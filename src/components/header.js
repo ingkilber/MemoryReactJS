@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 
 export default class Header extends Component {
+
+    // refrescar una página en React, lo he intentado con reload
+
+    reload = () => {
+        window.location.reload(true);
+    }
+
     render () {
         return (
             // <header>
@@ -21,7 +28,7 @@ export default class Header extends Component {
 			
 			<nav>
 				<a href="#">Elegir Nivel</a>
-				<a href="#">Reiniciar partida </a>
+				<a onClick={this.reload} >Reiniciar partida </a>
 				<a class="active" href="#">Nº de intentos: </a>
 			</nav>
 		</div>

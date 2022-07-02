@@ -17,6 +17,16 @@ import ReactCardFlip from 'react-card-flip';
 // useState aplica depues que se corre la funcion y useEffect antes del async await
 const Card = (props) => {
 
+    // voltear Cartas
+    const [isFlipped, setIsFlipped] = useState(false);
+
+    const handleClick = e => {
+      setIsFlipped(!isFlipped);
+    }
+  
+    // fin voltear cartas 
+
+    
   const [urlimagen, setUrlimagen] = useState("");
 
   const fetchApi = async () => {
@@ -30,7 +40,15 @@ const Card = (props) => {
 
   // asi se imprimime por pantalla {urlimagen} - {props.kilber}
   return(
-    <div> <img className='cartas' src={urlimagen} />  {props.kilber} </div>
+    <div className='cards'> {props.kilber}
+      {/* <img className='cartas' src={urlimagen} />  {props.kilber}  */}
+
+    <ReactCardFlip isFlipped={isFlipped}>
+      <img className='cartas' src={"https://cdn-icons-png.flaticon.com/512/6432/6432786.png"} alt='back-face' onClick={handleClick}/> 
+      <img className='cartas' src={urlimagen} alt='front-face' onClick={handleClick}/> 
+    </ReactCardFlip>
+
+    </div>
   );
 }
 

@@ -62,6 +62,7 @@ function App() {
     <li className="cards" key={todo.name}>
       <div>
         <Card kilber={todo.name} />
+        {/* frontFace={todo.sprites.other.home.front_default} */}
       </div>
     </li>
   ));
