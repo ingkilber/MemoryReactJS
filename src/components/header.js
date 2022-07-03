@@ -23,13 +23,13 @@ export default class Header extends Component {
             // </header>
 
             <header>
-		<div class="wrapper">
-			<div class="logo">Juego de Memoria</div>
+		<div className="wrapper">
+			<div className="logo">Juego de Memoria</div>
 			
 			<nav>
 				<a href="#">Elegir Nivel</a>
 				<a onClick={this.reload} >Reiniciar partida </a>
-				<a class="active" href="#">Nº de intentos: </a>
+				<a className="active" href="#">Nº de intentos: </a>
 			</nav>
 		</div>
 	</header>

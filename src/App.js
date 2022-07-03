@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Header from "./components/Header";
+import Header from "./components/header";
 import "./App.css";
 import Card from "./components/card";
 
@@ -9,11 +9,7 @@ function App() {
   const url = "https://pokeapi.co/api/v2/pokemon/?limit=10";
 
   const [cards, setCards] = useState([]);
-  const [firstCard, setFirstCard] = useState ({});
-  const [secondCard, setSecondCard] = useState ({});
 
-  const [unflippedCards, setUnflippedCards] = useState([]);
-  const [disabledCards, setDisabledCards] = useState([]);
 
   const fetchApi = async () => {
     const response = await fetch(url);
@@ -59,60 +55,17 @@ setCards(unir);
     fetchApi();
   }, []);
 
-  //nos dice que va a funcionar cada ves que tenga una segunda carta
-  useEffect(() => {
-    checkForMatch();
-  }, [secondCard]);
-
-  //metodo para voltear las cartas
-  const flipCard = (name, number) => {
-    if (firstCard.name === name && firstCard.number === number) {
-      return 0;
-    }
-    if (!firstCard.name) {
-      setFirstCard({ name, number });
-    }
-    else if (!secondCard.name) {
-      setSecondCard({ name, number });
-    }
-    return 1;
-  }
-
-// Saber si una carta es igual a otra
-  const checkForMatch = () => {
-    if (firstCard.name && secondCard.name) {
-      const match = firstCard.name === secondCard.name;
-      match ? disableCards() : unflipCards();
-    }
-  }
-
-  const disableCards = () => {
-    setDisabledCards([firstCard.number, secondCard.number]);
-    resetCards();
-  };
-
-  const unflipCards = () => {
-    setUnflippedCards([firstCard.number, secondCard.number]);
-    resetCards();
-  };
-
-  const resetCards = () => {
-    setFirstCard({});
-    setSecondCard({});
-  }
 
 
 
-  const listItems = cards.map((todo) => (
-    <li className="cards" key={todo.name}>
+  const listItems = cards.map((todo, index) => (
+    // usamos index en la key porque todo.name se repite, mientras que el index no porque es unico
+    <li className="cards" key={index} >
       <div>
-        <Card 
-        kilber={todo.name} 
-        flipCard={flipCard}
-        unflippedCards={unflippedCards}
-        disabledCards={disabledCards} />
+        <Card kilber={todo.name}/>
       </div>
     </li>
+
   ));
 
   return (
